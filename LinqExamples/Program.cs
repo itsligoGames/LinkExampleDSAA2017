@@ -41,13 +41,29 @@ namespace LinqExamples
 
             // Query 4 produce a score board for a game
             var scoreBoard = GameScores.Where(g => g.GameName == Name)
-                            .OrderByDescending(g => g.Score);
+                            .OrderByDescending(g => g.Score)
+                            .Take(2);
 
             Console.WriteLine("ScoreBoard for {0}", Name);
             foreach (var item in scoreBoard)
             {
                 Console.WriteLine(item.ToString());
             }
+
+            // Query 5 Select the Top XP player 
+            var topPlayer = Players
+                            .OrderByDescending(g => g.XP)
+                            .Take(1);
+            foreach (var item in topPlayer)
+                Console.WriteLine(item.ToString());
+            // Alternative way to get top player
+            Player AlternateTop = Players
+                    .OrderByDescending(t => t.XP)
+                    .FirstOrDefault();
+
+            if(AlternateTop != null)
+                Console.WriteLine(AlternateTop.ToString());
+
             Console.ReadKey();
         }
 
