@@ -39,7 +39,15 @@ namespace LinqExamples
                 Console.WriteLine(item.ToString());
             }
 
+            // Query 4 produce a score board for a game
+            var scoreBoard = GameScores.Where(g => g.GameName == Name)
+                            .OrderByDescending(g => g.Score);
 
+            Console.WriteLine("ScoreBoard for {0}", Name);
+            foreach (var item in scoreBoard)
+            {
+                Console.WriteLine(item.ToString());
+            }
             Console.ReadKey();
         }
 
