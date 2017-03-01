@@ -16,9 +16,29 @@ namespace LinqExamples
 
             SeedPlayers();
             SeedScores();
-            // Query 1
+           // // Query 1
+           //Player found =  Players.FirstOrDefault(p => p.GamerTag == "Watcha");
 
-           Player found =  Players.FirstOrDefault(p => p.GamerTag == "Watcha");
+           // if (found != null)
+           //     Console.WriteLine(found.ToString());
+           // else Console.WriteLine("Player not found");
+
+           // // Query 2 Find First score by Watcha
+           // GameScore Scorefound = GameScores
+           //                         .FirstOrDefault(p => p.GamerTag == "Watcha"
+           //                         );
+           // if (Scorefound != null)
+           //     Console.WriteLine(Scorefound.ToString());
+           // else Console.WriteLine("No Score found");
+
+            // Query 3 return all the scores for a named game
+            string Name = "World of Goo";
+            var scores = GameScores.Where(g => g.GameName == Name);
+            foreach (var item in scores)
+            {
+                Console.WriteLine(item.ToString());
+            }
+
 
             Console.ReadKey();
         }
@@ -27,7 +47,7 @@ namespace LinqExamples
         {
             Players = new List<Player>()
             {
-                new Player { FirstName="Billy", SecondName = "Bragg", GamerTag="Wathca", PlayerId =1, XP =200 },
+                new Player { FirstName="Billy", SecondName = "Bragg", GamerTag="Watcha", PlayerId =1, XP =200 },
                 new Player { FirstName="Martha", SecondName = "Abraham", GamerTag="Muffin", PlayerId =2, XP =500 },
                 new Player { FirstName="Fred", SecondName = "Flinstones", GamerTag="YabaYaba", PlayerId =3, XP =300 }
 

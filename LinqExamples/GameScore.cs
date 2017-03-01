@@ -12,5 +12,10 @@ namespace LinqExamples
         public string GamerTag { get; set; }
         public DateTime scoredAt { get; set; }
         public int Score { get; set; }
+
+        public override string ToString()
+        {
+            return GameName + " " + GamerTag + " " + scoredAt.ToString() + " " + Score.ToString();
+        }
     }
 }
