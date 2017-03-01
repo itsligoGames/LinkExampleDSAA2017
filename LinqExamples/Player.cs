@@ -14,5 +14,10 @@ namespace LinqExamples
         public string SecondName { get; set; }
         public int XP { get; set; }
 
+        public override string ToString()
+        {
+            return PlayerId.ToString() + " " + 
+                GamerTag + " " + FirstName + " " + SecondName + " " + XP.ToString();
+        }
     }
 }
